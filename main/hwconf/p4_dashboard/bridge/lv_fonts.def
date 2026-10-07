@@ -1,0 +1,67 @@
+/* lv_fonts.def -- built-in fonts visible from Lisp as font-montserrat-NN
+ * (plus font-default). A font only appears when lv_conf.h / sdkconfig enables it
+ * (CONFIG_LV_FONT_MONTSERRAT_NN=y in sdkconfig.defaults).
+ */
+#if LV_FONT_MONTSERRAT_8
+FONT(8)
+#endif
+#if LV_FONT_MONTSERRAT_10
+FONT(10)
+#endif
+#if LV_FONT_MONTSERRAT_12
+FONT(12)
+#endif
+#if LV_FONT_MONTSERRAT_14
+FONT(14)
+#endif
+#if LV_FONT_MONTSERRAT_16
+FONT(16)
+#endif
+#if LV_FONT_MONTSERRAT_18
+FONT(18)
+#endif
+#if LV_FONT_MONTSERRAT_20
+FONT(20)
+#endif
+#if LV_FONT_MONTSERRAT_22
+FONT(22)
+#endif
+#if LV_FONT_MONTSERRAT_24
+FONT(24)
+#endif
+#if LV_FONT_MONTSERRAT_26
+FONT(26)
+#endif
+#if LV_FONT_MONTSERRAT_28
+FONT(28)
+#endif
+#if LV_FONT_MONTSERRAT_30
+FONT(30)
+#endif
+#if LV_FONT_MONTSERRAT_32
+FONT(32)
+#endif
+#if LV_FONT_MONTSERRAT_34
+FONT(34)
+#endif
+#if LV_FONT_MONTSERRAT_36
+FONT(36)
+#endif
+#if LV_FONT_MONTSERRAT_38
+FONT(38)
+#endif
+#if LV_FONT_MONTSERRAT_40
+FONT(40)
+#endif
+#if LV_FONT_MONTSERRAT_42
+FONT(42)
+#endif
+#if LV_FONT_MONTSERRAT_44
+FONT(44)
+#endif
+#if LV_FONT_MONTSERRAT_46
+FONT(46)
+#endif
+#if LV_FONT_MONTSERRAT_48
+FONT(48)
+#endif

@@ -1,0 +1,45 @@
+--- a/main/CMakeLists.txt
++++ b/main/CMakeLists.txt
+@@ -149,8 +149,28 @@
+ "lowzip"
+ )
+ 
++# P4 DASHBOARD (Waveshare ESP32-P4 4.3" + LVGL bridge for LispBM)
++if(DEFINED HW_TARGET AND "${HW_TARGET}" STREQUAL "esp32p4_dashboard")
++    list(APPEND COMPONENT_SRCS
++        "hwconf/p4_dashboard/lvgl_bridge.c"
++        "hwconf/p4_dashboard/bridge/lvbr_core.c"
++        "hwconf/p4_dashboard/bridge/lvbr_api.c"
++        "hwconf/p4_dashboard/bridge/lvbr_events.c"
++        "hwconf/p4_dashboard/bridge/lvbr_extra.c"
++        "hwconf/p4_dashboard/bridge/lvbr_assets.c"
++    )
++    list(APPEND COMPONENT_ADD_INCLUDEDIRS
++        "hwconf/p4_dashboard"
++        "hwconf/p4_dashboard/lvgl"
++    )
++endif()
++
+ register_component()
+ 
++if(DEFINED HW_TARGET AND "${HW_TARGET}" STREQUAL "esp32p4_dashboard")
++    add_compile_definitions(LV_CONF_INCLUDE_SIMPLE)
++endif()
++
+ add_compile_definitions(
+     LBM_USE_DYN_FUNS
+     LBM_USE_DYN_MACROS
+--- a/main/idf_component.yml
++++ b/main/idf_component.yml
+@@ -24,6 +24,11 @@
+     version: ^2.0.2
+     rules:
+     - if: target == esp32p4
++  # LVGL, used only by the P4 Dashboard (HW_TARGET esp32p4_dashboard)
++  lvgl/lvgl:
++    version: ^9.5.0
++    rules:
++    - if: target == esp32p4
+   ## Required IDF version
+   idf:
+     version: '>=4.1.0'

@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+__MACOSX/
+.vscode/
+.idea/
+
+# ESP-IDF build output
+build/
+build_*/
+managed_components/
+dependencies.lock
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults.esp32p4_dashboard
+
+# Local archives and logs
+*.zip
+*.log
