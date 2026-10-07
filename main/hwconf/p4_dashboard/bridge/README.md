@@ -18,6 +18,7 @@ Lisp видит LVGL **один в один**: имя функции — это 
   (только там, где C допускает NULL: `parent` в `*_create`).
 * **Цвет** — число `0xRRGGBB`; `(lv-color-hex 0xRRGGBB)` оставлен для совместимости с C-записью.
 * **Проценты и размеры:** `(lv-pct 50)`, `LV_SIZE_CONTENT`.
+* **Тема LVGL:** `(lv-theme-set 0x2196F3 0x03A9F4 nil)` — основной и акцентный цвета, `t` = тёмная тема (включается в `ui-init` сгенерированного кода).
 * **Шрифты:** `font-default`, `font-montserrat-14/16/20/24/32/48` (какие есть, определяет
   `sdkconfig.defaults`: `CONFIG_LV_FONT_MONTSERRAT_NN=y`).
 * **Регистр.** LispBM читает символы в нижнем регистре, поэтому `LV_PART_MAIN` и `lv_part_main`
