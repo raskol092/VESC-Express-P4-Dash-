@@ -649,12 +649,48 @@ static lbm_value ext_nodes(lbm_value *args, lbm_uint argn) {
 	return res;
 }
 
+/* ------------------------------------------------------------------- тема */
+
+#if LV_USE_THEME_DEFAULT
+typedef struct { int32_t primary, secondary, dark; } theme_args_t;
+
+static void theme_set_cb(void *arg) {
+	const theme_args_t *a = arg;
+	lv_display_t *d = lv_display_get_default();
+	lv_theme_t *th = lv_theme_default_init(d, lv_color_hex((uint32_t)a->primary), lv_color_hex((uint32_t)a->secondary),
+	                                       a->dark != 0, LV_FONT_DEFAULT);
+	if (th) {
+		lv_display_set_theme(d, th);   /* обновляет и уже созданные объекты */
+	}
+}
+
+/* (lv-theme-set primary secondary dark) -- цвета 0xRRGGBB, dark: t / nil (стандартная тема LVGL) */
+static lbm_value ext_theme_set(lbm_value *args, lbm_uint argn) {
+	theme_args_t a;
+	int32_t p, s;
+	if (argn != 3 || !lvbr_arg_i32(args[0], &p) || !lvbr_arg_i32(args[1], &s)) {
+		return ENC_SYM_TERROR;
+	}
+	a.primary = p & 0xFFFFFF;
+	a.secondary = s & 0xFFFFFF;
+	a.dark = lbm_is_symbol_nil(args[2]) ? 0 : 1;
+	if (!lvbr_run(theme_set_cb, &a)) {
+		lbm_set_error_reason("lv-theme-set: LVGL task busy");
+		return ENC_SYM_EERROR;
+	}
+	return ENC_SYM_TRUE;
+}
+#endif
+
 /* ------------------------------------------------------------------- таблица */
 
 const lvbr_ext_t lvbr_extra_table[] = {
 	{ "lv-color-hex",                  ext_color_hex },
 	{ "lv-color-make",                 ext_color_make },
 	{ "lv-pct",                        ext_pct },
+#if LV_USE_THEME_DEFAULT
+	{ "lv-theme-set",                   ext_theme_set },
+#endif
 	{ "lv-style-create",               ext_style_create },
 	{ "lv-style-delete",               ext_style_delete },
 #if LV_USE_CHART
