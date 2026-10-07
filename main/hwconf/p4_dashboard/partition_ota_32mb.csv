@@ -1,0 +1,17 @@
+# Name,Type,SubType,Offset,Size
+# All partitions are kept below 16 MB: "lisp" and "qml" are read through a
+# flash mmap, and mmap reads above 16 MB wrap around on this board (reads
+# returned app code instead of the lisp partition -> LispBM image never
+# valid -> endless per-sector erase on every Stream/Upload).
+# App binary is ~2.1 MB, so 4 MB OTA slots are plenty.
+nvs,data,nvs,0x9000,0x6000
+otadata,data,ota,0xf000,0x2000
+phy_init,data,phy,0x11000,0x1000
+ota_0,app,ota_0,0x20000,4096k
+ota_1,app,ota_1,0x420000,4096k
+# lisp is 3 MB (was 1.5): the SK UI keeps its code in the LispBM constant heap
+# (flash image after the uploaded code + fonts), which needs ~350 KB.
+lisp,data,nvs,0x820000,3072k
+qml,data,nvs,0xb20000,128k
+storage,data,spiffs,0xb40000,4608k
+coredump,data,coredump,0xfc0000,256k

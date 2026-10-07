@@ -1,0 +1,47 @@
+## IDF Component Manager Manifest File
+
+dependencies:
+  espressif/esp_hosted:
+    version: 3.0.0
+    rules:
+      - if: target == esp32p4
+
+  espressif/esp_wifi_remote:
+    version: 1.5.1
+    rules:
+      - if: target == esp32p4
+
+  espressif/dhara: ^0.1.0
+
+  espressif/spi_nand_flash: ^0.1.0
+
+  espressif/esp_lcd_touch: ^1.2.1
+
+  espressif/esp_lcd_touch_cst816s: ^1.1.1
+
+  espressif/esp_lcd_touch_gt911: ^1.2.0
+
+  waveshare/esp_lcd_touch_cst9217: ^1.0.4
+
+  atanisoft/esp_lcd_touch_xpt2046: ^1.0.6
+
+  espressif/esp_lcd_axs15231b: ^2.1.0
+
+  espressif/esp_lcd_st7701:
+    version: ^2.0.2
+    rules:
+      - if: target == esp32p4
+
+  # LVGL is used only by the P4 Dashboard (HW_TARGET esp32p4_dashboard)
+  lvgl/lvgl:
+    version: ^9.5.0
+    rules:
+      - if: target == esp32p4
+
+  espressif/esp_lcd_jd9165:
+    version: ^2.0.2
+    rules:
+      - if: target == esp32p4
+
+  idf:
+    version: ">=4.1.0"
