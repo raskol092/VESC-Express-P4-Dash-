@@ -362,7 +362,11 @@ F(OBJ, lv_button_create, OBJN)
 
 #if LV_USE_CALENDAR
 F(OBJ, lv_calendar_add_header_arrow, OBJN)
+#if LV_USE_CALENDAR_HEADER_DROPDOWN
+F(OBJ, lv_calendar_add_header_dropdown, OBJN)
+#endif
 F(OBJ, lv_calendar_create, OBJN)
+F(V, lv_calendar_set_month_shown, OBJ, U, U)
 F(V, lv_calendar_set_today_date, OBJ, U, U, U)
 #endif
 
@@ -531,6 +535,7 @@ F(V, lv_switch_set_orientation, OBJ, I)
 
 #if LV_USE_TABLE
 F(OBJ, lv_table_create, OBJN)
+F(V, lv_table_set_cell_ctrl, OBJ, U, U, I)
 F(V, lv_table_set_cell_value, OBJ, U, U, S)
 F(V, lv_table_set_column_count, OBJ, U)
 F(V, lv_table_set_column_width, OBJ, U, I)
