@@ -461,7 +461,6 @@ F(V, lv_line_set_y_invert, OBJ, B)
 
 #if LV_USE_LIST
 F(OBJ, lv_list_add_button, OBJ, OBJN, S)   /* icon = nil -> no icon */
-F(OBJ, lv_list_add_button, OBJ, OBJN, S)   /* icon = nil -> no icon */
 F(OBJ, lv_list_add_text, OBJ, S)
 F(OBJ, lv_list_create, OBJN)
 #endif
@@ -517,7 +516,6 @@ F(V, lv_spinbox_increment, OBJ)
 F(V, lv_spinbox_set_cursor_pos, OBJ, U)
 F(V, lv_spinbox_set_digit_format, OBJ, U, U)
 F(V, lv_spinbox_set_range, OBJ, I, I)
-F(V, lv_spinbox_set_rollover, OBJ, B)
 F(V, lv_spinbox_set_rollover, OBJ, B)
 F(V, lv_spinbox_set_step, OBJ, U)
 F(V, lv_spinbox_set_value, OBJ, I)
