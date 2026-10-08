@@ -362,7 +362,11 @@ F(OBJ, lv_button_create, OBJN)
 
 #if LV_USE_CALENDAR
 F(OBJ, lv_calendar_add_header_arrow, OBJN)
+#if LV_USE_CALENDAR_HEADER_DROPDOWN
+F(OBJ, lv_calendar_add_header_dropdown, OBJN)
+#endif
 F(OBJ, lv_calendar_create, OBJN)
+F(V, lv_calendar_set_month_shown, OBJ, U, U)
 F(V, lv_calendar_set_today_date, OBJ, U, U, U)
 #endif
 
@@ -413,6 +417,8 @@ F(V, lv_image_set_offset_y, OBJ, I)
 F(V, lv_image_set_pivot, OBJ, I, I)
 F(V, lv_image_set_rotation, OBJ, I)
 F(V, lv_image_set_scale, OBJ, U)
+F(V, lv_image_set_scale_x, OBJ, U)
+F(V, lv_image_set_scale_y, OBJ, U)
 #endif
 
 #if LV_USE_IMAGEBUTTON
@@ -529,6 +535,7 @@ F(V, lv_switch_set_orientation, OBJ, I)
 
 #if LV_USE_TABLE
 F(OBJ, lv_table_create, OBJN)
+F(V, lv_table_set_cell_ctrl, OBJ, U, U, I)
 F(V, lv_table_set_cell_value, OBJ, U, U, S)
 F(V, lv_table_set_column_count, OBJ, U)
 F(V, lv_table_set_column_width, OBJ, U, I)
@@ -560,6 +567,7 @@ F(V, lv_textarea_set_cursor_pos, OBJ, I)
 F(V, lv_textarea_set_max_length, OBJ, U)
 F(V, lv_textarea_set_one_line, OBJ, B)
 F(V, lv_textarea_set_password_mode, OBJ, B)
+F(V, lv_textarea_set_password_show_time, OBJ, U)
 F(V, lv_textarea_set_placeholder_text, OBJ, S)
 F(V, lv_textarea_set_text, OBJ, S)
 #endif
