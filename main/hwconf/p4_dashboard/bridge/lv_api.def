@@ -413,6 +413,8 @@ F(V, lv_image_set_offset_y, OBJ, I)
 F(V, lv_image_set_pivot, OBJ, I, I)
 F(V, lv_image_set_rotation, OBJ, I)
 F(V, lv_image_set_scale, OBJ, U)
+F(V, lv_image_set_scale_x, OBJ, U)
+F(V, lv_image_set_scale_y, OBJ, U)
 #endif
 
 #if LV_USE_IMAGEBUTTON
@@ -560,6 +562,7 @@ F(V, lv_textarea_set_cursor_pos, OBJ, I)
 F(V, lv_textarea_set_max_length, OBJ, U)
 F(V, lv_textarea_set_one_line, OBJ, B)
 F(V, lv_textarea_set_password_mode, OBJ, B)
+F(V, lv_textarea_set_password_show_time, OBJ, U)
 F(V, lv_textarea_set_placeholder_text, OBJ, S)
 F(V, lv_textarea_set_text, OBJ, S)
 #endif
